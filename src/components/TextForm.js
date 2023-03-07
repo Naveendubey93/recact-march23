@@ -27,12 +27,12 @@ export default function TextForm(props) {
       <button className="btn btn-primary mx-1" onClick={handleUcClick}>UC First case</button>
 
 
-        <div className="container">
+        <div className="container my-3" style={{color: props.textColor}}>
           <h2>Your text summery</h2>
           <p> Total {text.length} letters and {text.split(" ").length } words</p>
         </div>
-        <h2>Prevew</h2>
-        <p>{text}</p>
+        <h2 style={{color: props.textColor}}>Prevew</h2>
+        <p style={{color: props.textColor}}>{text}</p>
 
     </div>
 
