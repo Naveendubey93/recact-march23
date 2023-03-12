@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/recact-march23/static/css/main.073c9b0a.css",
+    "main.js": "/recact-march23/static/js/main.1be3a501.js",
+    "static/js/787.fe7621ad.chunk.js": "/recact-march23/static/js/787.fe7621ad.chunk.js",
+    "index.html": "/recact-march23/index.html",
+    "main.073c9b0a.css.map": "/recact-march23/static/css/main.073c9b0a.css.map",
+    "main.1be3a501.js.map": "/recact-march23/static/js/main.1be3a501.js.map",
+    "787.fe7621ad.chunk.js.map": "/recact-march23/static/js/787.fe7621ad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.1be3a501.js"
+  ]
+}
