@@ -14,8 +14,8 @@ import Alert from './components/Alert';
 import About from './components/About';
 function App() {
   const [mode, setMode] = useState('dark');
-  const [textColor, setColor] = useState('white');
-  const [alert, setAlert] = useState('Success','Default Alert');
+  const [textColor, setColor] = useState('black');
+  const [alert, setAlert] = useState(null);
   const showAlert = (message, type) => {
     setAlert({
       msg: message,
