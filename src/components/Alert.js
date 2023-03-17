@@ -9,10 +9,12 @@ import React from 'react'
   console.log("props.alert = = =>",props.alert)
   return (
     <div style={{height:"50px"}}>
-     { props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
- 
-      <strong> {capitalize(props.alert.type) }: </strong>   {props.alert.msg}
-    </div>}
+     { props.alert && 
+      <div className = {`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
+        <strong> {capitalize(props.alert.type) }: </strong>  
+      {props.alert.msg}
+    </div>
+    }
     </div>
   )
 }

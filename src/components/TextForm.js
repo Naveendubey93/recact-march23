@@ -36,7 +36,7 @@ console.log("received props = == = = =>", props);
     <div className="container">
       <div className="mb-3">
         {/* <label htmlFor="exampleFormControlTextarea1" className="form-label">{props.title} </label> */}
-        <h2  style={{color: props.textColor || 'black'}}> {props.title || "Enter the text to analyze below1"} </h2>
+        <h2  style={{color: props.textColor && 'black'}}> {props.title || "Enter the text to analyze below1"} </h2>
         <textarea className="form-control" id="myBox" rows="3"  onChange = {handleOnChange} value = {text}></textarea>
       </div>
       <button className="btn btn-primary mx-1 my-1" onClick={handleOnClick}>Convert to upper case</button>
@@ -52,12 +52,15 @@ console.log("received props = == = = =>", props);
           <p> Total {text.split(" ").filter(res=> res.length!==0).length } words  and {text.trim().length} characters </p>
           <p> Total {0.008 * text.split(" ").filter(res=> res.length!==0).length } Minutes read </p>
 
+        <div className="container my-3" style={{color: props.textColor}}>
+          <h2>Your text summery</h2>
+          <p> Total {text.length} letters and {text.split(" ").length } words</p>
         </div>
-        <h2 style={{color: props.textColor}}>Preview</h2>
+        <h2 style={{color: props.textColor}}>Prevew</h2>
         <p style={{color: props.textColor}}>{text}</p>
 
     </div>
-
+    </div>
   )
 }
 

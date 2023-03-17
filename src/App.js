@@ -14,8 +14,8 @@ import Alert from './components/Alert';
 import About from './components/About';
 function App() {
   const [mode, setMode] = useState('dark');
-  const [textColor, setColor] = useState('black');
-  const [alert, setAlert] = useState(null);
+  const [textColor, setColor] = useState('white');
+  const [alert, setAlert] = useState('Success','Default Alert');
   const showAlert = (message, type) => {
     setAlert({
       msg: message,
@@ -40,25 +40,23 @@ function App() {
         document.title = 'TextUtils- dark mode'
     } 
   }
-  console.log("setColor = == = = = >", textColor);
+  // console.log("setColor = == = = = >", textColor);
   return (
-  
-    <div> 
-        <Router>
+
+    <div className='container'>
       <Navbar title = "Text-Project" mode={mode} toggleMode={toggleMode}  textColor={textColor}/>
       <Alert alert = {alert} />
-      <div className="my-3">
-      <Routes>
-        <Route exact path="/about" element = 
-          {<About />} /> 
-          <Route exact path="/" element = { 
-          <TextForm  showAlert = {showAlert} title = "Enter the text to analyze below" textColor={textColor}/>
-        } />
-         </Routes>
-        </div>
-  
-     </Router>
-     </div> 
+      <div className="container my-3">
+        <Router>
+          <Routes>
+            <Route exact path="/about" element =   {<About />} /> 
+            <Route exact path="/" element = { 
+              <TextForm  showAlert = {showAlert} title = "Enter the text to analyze below" textColor={textColor}/>
+            } />
+          </Routes>
+        </Router>
+      </div>
+    </div>
   );
 }
 
