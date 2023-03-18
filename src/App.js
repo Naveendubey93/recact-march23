@@ -1,11 +1,9 @@
 import './App.css';
-// import About from './components/About';
 import {
   BrowserRouter as Router,
   // Switch,
   Routes,
   Route,
-  // Link
 } from "react-router-dom";
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
@@ -25,38 +23,50 @@ function App() {
       setAlert(null);
     },2000)
   }
-  const toggleMode = () => {
-    if (mode === 'dark') {
+  const removeBodyClass = ()=> {
+    document.body.classList.remove('bg-light');
+    document.body.classList.remove('bg-dark');
+    document.body.classList.remove('bg-warning');
+    document.body.classList.remove('bg-danger');
+    document.body.classList.remove('bg-success');
+    document.body.classList.remove('bg-info');
+  }
+  const toggleMode = (cls = false) => {
+    removeBodyClass();
+    if (mode === 'dark' &&  typeof(cls) === 'object') {
+      console.log("Entered intl dark mode=== = == = = > 39");
       setMode('light');
       setColor('black')
       document.body.style.backgroundColor = 'white';
       showAlert('Light Mode has been enabled', 'success');
       document.title = 'TextUtils- light mode'
+    } else if (cls && typeof(cls) === 'string') {
+      setMode(cls);
+      document.body.classList.add('bg-'+cls);
+      setColor('white');
+      document.body.style.backgroundColor = cls || '#042743';
+      showAlert('Dark Mode has been enabled','success');
+      document.title = `TextUtils- ${cls} mode`
     } else {
+      removeBodyClass();
       setMode('dark');
       setColor('white');
       document.body.style.backgroundColor = '#042743';
       showAlert('Dark Mode has been enabled','success');
-        document.title = 'TextUtils- dark mode'
+      document.title = 'TextUtils- dark mode'
     } 
   }
-  // console.log("setColor = == = = = >", textColor);
   return (
-
-    <div className='container'>
+    <Router>
       <Navbar title = "Text-Project" mode={mode} toggleMode={toggleMode}  textColor={textColor}/>
       <Alert alert = {alert} />
-      <div className="container my-3">
-        <Router>
-          <Routes>
-            <Route exact path="/about" element =   {<About />} /> 
-            <Route exact path="/" element = { 
-              <TextForm  showAlert = {showAlert} title = "Enter the text to analyze below" textColor={textColor}/>
-            } />
-          </Routes>
-        </Router>
-      </div>
-    </div>
+      <Routes>
+        <Route exact path="/about" element = {<About mode={mode} showAlert = {showAlert}  textColor={textColor} />} /> 
+        <Route exact path="/" element = { 
+          <TextForm mode={mode} showAlert = {showAlert} title = "Enter the text to analyze below" textColor={textColor}/>
+      } />
+    </Routes>
+ </Router>   
   );
 }
 
